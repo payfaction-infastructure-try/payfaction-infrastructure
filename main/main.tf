@@ -6,7 +6,7 @@ provider "aws" {
 
 provider "circleci" {
   api_token    = "${file("${var.CIRCLECI_API_TOKEN}")}"
-  vcs_type     = "${var.CIRCLECI_VSC_TYPE}"
+  vcs_type     = "${var.CIRCLECI_VCS_TYPE}"
   organization = "${var.CIRCLECI_ORGANIZATION}"
 }
 
