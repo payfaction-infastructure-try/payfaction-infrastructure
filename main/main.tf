@@ -4,6 +4,11 @@ provider "aws" {
   region     = "${var.AWS_REGION}"
 }
 
+provider "circleci" {
+  api_token    = "${file("${var.CIRCLECI_API_TOKEN}")}"
+  vcs_type     = "${var.CIRCLECI_VSC_TYPE}"
+  organization = "${var.CIRCLECI_ORGANIZATION}"
+}
 
 ####### LOCALS #######
 
@@ -138,6 +143,27 @@ resource "aws_lb" "default" {
 
 resource "aws_ecs_cluster" "main" {
   name = "${local.aws_ecs_cluster_name}"
+}
+
+
+
+####### CIRCLE CI #######
+
+
+resource "circleci_context" "aws" {
+  name  = "aws"
+}
+
+resource "circleci_context_environment_variable" "aws" {
+  for_each = {
+    AWS_ACCESS_KEY_ID = "${var.AWS_ACCESS_KEY_ID}"
+    AWS_SECRET_ACCESS_KEY = "${var.AWS_SECRET_ACCESS_KEY}"
+    AWS_DEFAULT_REGION = "${var.AWS_REGION}"
+  }
+
+  variable   = each.key
+  value      = each.value
+  context_id = circleci_context.aws.id
 }
 
 
