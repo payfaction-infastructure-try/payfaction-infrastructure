@@ -15,11 +15,14 @@ variable "AWS_RESOURCE_NAME_PREFIX" {
 } 
 
 variable "CIRCLECI_API_TOKEN" {
-  description = "Token for accessing circle ci"
+  description = "API token for using circleci"
 }
 
 variable "CIRCLECI_VCS_TYPE" {
+  description = "Circleci vsc type"
   default = "github"
 }
 
-variable "CIRCLECI_ORGANIZATION" {}
+variable "CIRCLECI_ORGANIZATION" {
+  description = "Circleci organization"
+}

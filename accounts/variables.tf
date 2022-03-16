@@ -21,3 +21,17 @@ variable "REMOTE_ORGANIZATION" {
 variable "REMOTE_WORKSPACE" {
   description = "Workspace name which remote state should be used"
 }
+
+variable "CIRCLECI_API_TOKEN" {
+  description = "API token for using circleci"
+}
+
+variable "CIRCLECI_VCS_TYPE" {
+  description = "Circleci vsc type"
+  default = "github"
+}
+
+variable "CIRCLECI_ORGANIZATION" {
+  description = "Circleci organization"
+}
+
