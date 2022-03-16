@@ -13,3 +13,13 @@ variable "AWS_REGION" {
 variable "AWS_RESOURCE_NAME_PREFIX" {
   description = "Prefix to be used in the naming of some of the created AWS resources e.g. demo-webapp"
 } 
+
+variable "CIRCLECI_API_TOKEN" {
+  description = "Token for accessing circle ci"
+}
+
+variable "CIRCLECI_VCS_TYPE" {
+  default = "github"
+}
+
+variable "CIRCLECI_ORGANIZATION" {}
