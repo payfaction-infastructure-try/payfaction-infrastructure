@@ -160,7 +160,6 @@ resource "circleci_context_environment_variable" "aws" {
     AWS_SECRET_ACCESS_KEY = "${var.AWS_SECRET_ACCESS_KEY}"
     AWS_DEFAULT_REGION = "${var.AWS_REGION}"
   }
-
   variable   = each.key
   value      = each.value
   context_id = circleci_context.aws.id
